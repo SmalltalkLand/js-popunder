@@ -1,4 +1,4 @@
-# Javascript Smart Popunder Maker
+# Javascript Smart Popunder Maker (variation)
 * This class provides an easy way to make a popunder
 * Avoid blocked on Google Chrome
 * **Note**: _For Google Chrome, to avoid blocked so each popunder will be  fired by each click. You may increase `chromeDelay` option to pass Chrome Popup Blocker._
@@ -6,35 +6,12 @@
 -----
 * @author: Phan Thanh Cong <ptcong90@gmail.com>
 * @license: MIT
+* Edited by Rafel Sansó
 
 ### Change logs
 
-##### version 2.3.2; Apr 1, 2015
-* Fix parse browser version in IE 11.
-
-##### Version 2.3.1 - Mar 28, 2015
-* Fix merge options in IE 7, fix some issues in IE 11.
-
-##### Version 2.3 - Mar 23, 2015
-* Add new options beforeOpen, afterOpen callback.
-
-##### Version 2.2 - Mar 06, 2015
-* update for google chrome 41.x (fire popunder ok, but can't blur now, i'm working on this)
-
-##### Version 2.1 - Jan 20, 2015
-* Improved, fixed pop on tab/window always be focused. (still issues on firefox, safari if use newtab)
-* New option `blurByAlert` (will show an alert message to focus the current tab - only for firefox, safari)
-
-##### Version 2.0 - Jan 11, 2015
-* Rewrite all the class.
-* Add new SMART features to bypass Google Chrome Popup Blocker.
-
-##### Version 1.2 - Jul 5, 2013
-* Fixed bugs on IE 6,7,8
-* Anti Google Chrome Blocker
-
-##### Version 1.0 - 2011
-* First release
+##### version 2.3.2.1; Apr 23, 2015
+* Eventually, the popup doesn't launch. To prevent this I comment lines 174, 180 and 208.
 
 ### Usage
 * By defaults, popunder flags will work on each browser session that mean if you restart the browser, the popup will fire again. Of course, you may change the behavior by `cookieExpires` (number of minutes or instance of Date).
