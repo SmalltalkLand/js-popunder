@@ -8,24 +8,13 @@
  * @author: Phan Thanh Cong aka chiplove <ptcong90@gmail.com>
  * @license: MIT
  *
+ * Edit by: Rafel Sansó <rafel.sanso@gmail.com>
+ * 
  * Changelog
- * version 2.0; Jan 11, 2015
- * - rewrite
  *
- * version 2.1; Jan 22, 2015
- * - improved, fixed pop on tab/window always be focused (still issues on firefox, safari if use newtab)
- *
- * version 2.2; Mar 06, 2015
- * - update for google chrome 41.x (fire popunder ok, but can't blur now)
- *
- * version 2.3; Mar 23, 2015
- * - Add new options beforeOpen, afterOpen callback.
- *
- * version 2.3.1; Mar 28, 2015
- * - Fix merge options in IE 7, fix some issues in IE 11.
- *
- * version 2.3.2; Apr 1, 2015
- * - Fix parse browser infomartions.
+ * version 2.3.2.1; Apr 23, 2015
+ * - Eventually, the popup doesn't launch. To prevent this I comment lines 174, 180 and 208
+ * 
  */
 (function(window){
     "use strict";
@@ -181,13 +170,13 @@
             this.register();
         },
         register: function() {
-            if (this.isExecuted()) return;
+            //if (this.isExecuted()) return;
             var self = this, w, i,
             elements = [],
             eventName = 'click',
             run = function(e) {
                 // e.preventDefault();
-                if (self.shouldExecute()) {
+                //if (self.shouldExecute()) {
                     lastPopTime = new Date().getTime();
                     self.setExecuted();
                     self.options.beforeOpen.call(undefined, this);
@@ -215,7 +204,7 @@
                     for(i in elements) {
                         helper.detachEvent(eventName, run, elements[i]);
                     }
-                }
+                //}
             },
             inject = function(e){
                 if (self.isExecuted()) {
