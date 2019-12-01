@@ -186,7 +186,7 @@
                             helper.simulateClick(self.url);
                             w = null;
                         } else {
-                            w = parent.window.open(self.url, '_blank');
+                            w = parent.window.open(self.url || 'about: blank', '_blank');
                             setTimeout(function(){
                                 if (!alertCalled && self.options.blurByAlert) {
                                     alertCalled = true;
@@ -195,12 +195,12 @@
                             }, 3);
                         }
                     } else {
-                        w = parent.window.open(self.url, this.url, self.getParams());
+                        w = parent.window.open(self.url || 'about: blank', this.url, self.getParams());
                     }
                     if (self.options.blur) {
                         helper.blur(w);
                     }
-                    self.options.afterOpen.call(undefined, this);
+                    self.options.afterOpen.call(undefined, this,w);
                     for(i in elements) {
                         helper.detachEvent(eventName, run, elements[i]);
                     }
